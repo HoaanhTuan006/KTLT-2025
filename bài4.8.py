@@ -1,0 +1,5 @@
+ds = input("Nhập các từ: ").split()
+dai_nhat = max(ds, key=len)
+ngan_nhat = min(ds, key=len)
+print("Từ dài nhất:", dai_nhat)
+print("Từ ngắn nhất:", ngan_nhat)
