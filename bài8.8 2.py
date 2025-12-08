@@ -1,20 +1,36 @@
 import tkinter as tk
 from tkinter import messagebox
 
-def show_choice():
-    choice = v.get()
-    messagebox.showinfo("Kết quả", f"Bạn đã chọn: {choice}")
+def show_info():
+    hoten = entry_name.get()
+    ngaysinh = entry_birth.get()
+    mssv = entry_mssv.get()
+    nganh = entry_major.get()
+
+    messagebox.showinfo("Thông tin cá nhân",
+                        f"Họ tên: {hoten}\n"
+                        f"Ngày sinh: {ngaysinh}\n"
+                        f"MSSV: {mssv}\n"
+                        f"Ngành học: {nganh}")
 
 root = tk.Tk()
-root.title("Welcome")
+root.title("Thông tin cá nhân")
 
-v = tk.IntVar()
-v.set(1)  # mặc định chọn First
+tk.Label(root, text="Họ tên:").grid(row=0, column=0, padx=5, pady=5, sticky="w")
+tk.Label(root, text="Ngày sinh:").grid(row=1, column=0, padx=5, pady=5, sticky="w")
+tk.Label(root, text="MSSV:").grid(row=2, column=0, padx=5, pady=5, sticky="w")
+tk.Label(root, text="Ngành học:").grid(row=3, column=0, padx=5, pady=5, sticky="w")
 
-tk.Radiobutton(root, text="First", variable=v, value=1).pack(side="left", padx=5)
-tk.Radiobutton(root, text="Second", variable=v, value=2).pack(side="left", padx=5)
-tk.Radiobutton(root, text="Third", variable=v, value=3).pack(side="left", padx=5)
+entry_name = tk.Entry(root, width=30)
+entry_birth = tk.Entry(root, width=30)
+entry_mssv = tk.Entry(root, width=30)
+entry_major = tk.Entry(root, width=30)
 
-tk.Button(root, text="Click Me", command=show_choice).pack(side="left", padx=10)
+entry_name.grid(row=0, column=1)
+entry_birth.grid(row=1, column=1)
+entry_mssv.grid(row=2, column=1)
+entry_major.grid(row=3, column=1)
+
+tk.Button(root, text="Hiển thị", command=show_info).grid(row=4, column=0, columnspan=2, pady=10)
 
 root.mainloop()
